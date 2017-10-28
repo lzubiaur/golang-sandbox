@@ -3,17 +3,14 @@ package main
 import "testing"
 
 func TestHello(t *testing.T) {
-  cases := []struct {
-    in, want string
-  }{
-    {"Hello, world", "dlrow ,olleH"},
-    {"Hello, 世界", "界世 ,olleH"},
-    {"", ""},
+  rc := Foo()
+  if rc != 1 {
+    t.Error("Must return 1")
   }
-  for _, c := range cases {
-    got := Reverse(c.in)
-    if got != c.want {
-      t.Errorf("Reverse(%q) == %q, want %q", c.in, got, c.want)
-    }
-  }
+}
+
+func ExampleHello() {
+  Foo()
+  // Output:
+  // hello
 }
